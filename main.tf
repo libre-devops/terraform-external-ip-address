@@ -4,7 +4,7 @@
 
 # Full path to the helper that exists only on Windows
 locals {
-  windows_helper = "${abspath(path.module)}\\printf.cmd"
+  windows_helper = var.working_dir != null ? "${abspath(var.working_dir)}\\printf.cmd" : "${abspath(path.module)}\\printf.cmd"
 }
 
 # If the helper file exists, we’re on Windows; otherwise assume Linux
